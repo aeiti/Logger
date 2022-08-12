@@ -149,6 +149,5 @@ class Logger:
         self.close_log(self.debug_log, self._PATH_DEBUG, _TXT_DEBUG)
         self.close_log(self.trace_log, self._PATH_TRACE, _TXT_TRACE)
         self.close_log(self.all_log, self._PATH_ALL, _TXT_ALL)
-
     # End __del__
 # End Logger class
