@@ -54,6 +54,23 @@ class Logger:
         self.open_logs() # Open all log files
     # End __init__
 
+    def open_log(self, log, path, name):
+        try:
+            log = open(path, 'a+', encoding=_UTF8)
+        except FileNotFoundError:
+            log = open(path, 'w+', encoding=_UTF8)
+        except OSError:
+            log = None
+            print(_LOG_OPENED_UNSUCCESSFULLY.format(name))
+        else:
+            print(_LOG_OPENED_SUCCESSFULLY.format(name))
+    # End open_log
+
+    def close_log(self, log, path, name):
+        if log is not None:
+            log.close()
+    # End close_log
+
     def open_logs(self):
         is_dir = os.path.isdir(self._PATH_LOGS)
         if not is_dir:
@@ -69,78 +86,69 @@ class Logger:
     # End open_logs
 
     def open_fatal_log(self):
-        try:
-            self.fatal_log = open(self._PATH_FATAL, 'a+', encoding=_UTF8)
-        except FileNotFoundError:
-            self.fatal_log = open(self._PATH_FATAL, 'w+', encoding=_UTF8)
-        except OSError:
-            self.fatal_log = None
-            print(_LOG_OPENED_UNSUCCESSFULLY.format(_TXT_FATAL))
-        else:
-            print(_LOG_OPENED_SUCCESSFULLY.format(_TXT_FATAL))
+        self.open_log(self.fatal_log, self._PATH_FATAL, _TXT_FATAL)
     # End open_fatal_log
 
     def open_error_log(self):
-        try:
-            self.error_log = open(self._PATH_ERROR, 'a', encoding=_UTF8)
-        except OSError:
-            self.error_log = None
-            print(_LOG_OPENED_UNSUCCESSFULLY.format(_TXT_ERROR))
-        else:
-            print(_LOG_OPENED_SUCCESSFULLY.format(_TXT_ERROR))
+        self.open_log(self.error_log, self._PATH_ERROR, _TXT_ERROR)
     # End open_error_log
 
     def open_warning_log(self):
-        try:
-            self.warning_log = open(self._PATH_WARNING, 'a', encoding=_UTF8)
-        except OSError:
-            self.warning_log = None
-            print(_LOG_OPENED_UNSUCCESSFULLY.format(_TXT_WARNING))
-        else:
-            print(_LOG_OPENED_SUCCESSFULLY.format(_TXT_WARNING))
+        self.open_log(self.warning_log, self._PATH_WARNING, _TXT_WARNING)
     # End open_warning_log
 
     def open_info_log(self):
-        try:
-            self.info_log = open(self._PATH_INFO, 'a', encoding=_UTF8)
-        except OSError:
-            self.info_log = None
-            print(_LOG_OPENED_UNSUCCESSFULLY.format(_TXT_INFO))
-        else:
-            print(_LOG_OPENED_SUCCESSFULLY.format(_TXT_INFO))
+        self.open_log(self.info_log, self._PATH_INFO, _TXT_INFO)
     # End info_log
 
     def open_debug_log(self):
-        try:
-            self.debug_log = open(self._PATH_DEBUG, 'a', encoding=_UTF8)
-        except OSError:
-            self.debug_log = None
-            print(_LOG_OPENED_UNSUCCESSFULLY.format(_TXT_DEBUG))
-        else:
-            print(_LOG_OPENED_SUCCESSFULLY.format(_TXT_DEBUG))
+        self.open_log(self.debug_log, self._PATH_DEBUG, _TXT_DEBUG)
     # End open_debug_log
 
     def open_trace_log(self):
-        try:
-            self.trace_log = open(self._PATH_TRACE, 'a', encoding=_UTF8)
-        except OSError:
-            self.trace_log = None
-            print(_LOG_OPENED_UNSUCCESSFULLY.format(_TXT_TRACE))
-        else:
-            print(_LOG_OPENED_SUCCESSFULLY.format(_TXT_TRACE))
+        self.open_log(self.trace_log, self._PATH_TRACE, _TXT_TRACE)
     # End open_trace_log
 
     def open_all_log(self):
-        try:
-            self.all_log = open(self._PATH_ALL, 'a', encoding=_UTF8)
-        except OSError:
-            self.all_log = None
-            print(_LOG_OPENED_UNSUCCESSFULLY.format(_TXT_ALL))
-        else:
-            print(_LOG_OPENED_SUCCESSFULLY.format(_TXT_ALL))
+        self.open_log(self.all_log, self._PATH_ALL, _TXT_ALL)
+    # End open_all_log
+
+    def close_fatal_log(self):
+        self.close_log(self.fatal_log, self._PATH_FATAL, _TXT_FATAL)
+    # End open_fatal_log
+
+    def close_error_log(self):
+        self.close_log(self.error_log, self._PATH_ERROR, _TXT_ERROR)
+    # End open_error_log
+
+    def close_warning_log(self):
+        self.close_log(self.warning_log, self._PATH_WARNING, _TXT_WARNING)
+    # End open_warning_log
+
+    def close_info_log(self):
+        self.close_log(self.info_log, self._PATH_INFO, _TXT_INFO)
+    # End info_log
+
+    def close_debug_log(self):
+        self.close_log(self.debug_log, self._PATH_DEBUG, _TXT_DEBUG)
+    # End open_debug_log
+
+    def close_trace_log(self):
+        self.close_log(self.trace_log, self._PATH_TRACE, _TXT_TRACE)
+    # End open_trace_log
+
+    def close_all_log(self):
+        self.close_log(self.all_log, self._PATH_ALL, _TXT_ALL)
     # End open_all_log
 
     def __del__(self):
-        pass
+        self.close_log(self.fatal_log, self._PATH_FATAL, _TXT_FATAL)
+        self.close_log(self.error_log, self._PATH_ERROR, _TXT_ERROR)
+        self.close_log(self.warning_log, self._PATH_WARNING, _TXT_WARNING)
+        self.close_log(self.info_log, self._PATH_INFO, _TXT_INFO)
+        self.close_log(self.debug_log, self._PATH_DEBUG, _TXT_DEBUG)
+        self.close_log(self.trace_log, self._PATH_TRACE, _TXT_TRACE)
+        self.close_log(self.all_log, self._PATH_ALL, _TXT_ALL)
+
     # End __del__
 # End Logger class
