@@ -32,9 +32,9 @@ class Log:
 
     def write(self, msg):
         now = datetime.now()
-        current_time = now.strftime("%H:%M:%S")
+        current_time = now.strftime("%d/%m/%Y %H:%M:%S")
 
-        self.file.write(f"[{current_time}: {self._TXT}, \t{msg}]\n")
+        self.file.write(f"[{current_time}: {self._TXT}, {msg}]\n")
 
         self.file.flush()
     # End write
