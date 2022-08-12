@@ -32,7 +32,7 @@ class Log:
 
     def write(self, msg):
         now = datetime.now()
-        current_time = now.strftime("%d/%m/%Y %H:%M:%S")
+        current_time = now.strftime("%m/%d/%Y %H:%M:%S")
 
         self.file.write(f"[{current_time}: {self._TXT}, {msg}]\n")
 
