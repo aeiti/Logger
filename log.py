@@ -12,8 +12,6 @@ class Log:
         self._TXT = txt
 
         self.file = None
-
-        self.open()
     # End __init__
 
     def open(self):
@@ -45,4 +43,8 @@ class Log:
         if self.file is not None:
             self.file.close()
     # End close
+
+    def __del__(self):
+        self.close()
+    # End __del__
 # End Log

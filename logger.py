@@ -11,8 +11,6 @@ class Logger:
     # All attributes are needed for logging
 
     def __init__(self):
-        self._PATH_LOGS = "logs"
-
         # Initialize logs
         self._LOG_FATAL = Log("fatal.txt", const._TXT_FATAL) # FATAL log
         self._LOG_ERROR = Log("error.txt", const._TXT_ERROR) # ERROR log
