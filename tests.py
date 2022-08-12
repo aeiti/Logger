@@ -4,6 +4,8 @@ from logger import Logger
 
 log = Logger()
 
+log.all("Logging started")
+
 log.fatal(f"{const._TXT_FATAL} log successful")
 log.error(f"{const._TXT_ERROR} log successful")
 log.warning(f"{const._TXT_WARNING} log successful")
