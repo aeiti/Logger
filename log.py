@@ -1,6 +1,8 @@
 # Imports
 import os
 
+from datetime import datetime
+
 import constants as const
 
 class Log:
@@ -10,6 +12,8 @@ class Log:
         self._TXT = txt
 
         self.file = None
+
+        self.open()
     # End __init__
 
     def open(self):
@@ -28,7 +32,17 @@ class Log:
             print(const._LOG_OPENED_SUCCESSFULLY.format(self._TXT))
     # End open
 
+    def write(self, msg):
+        now = datetime.now()
+        current_time = now.strftime("%H:%M:%S")
+
+        self.file.write(f"[{current_time}: {self._TXT}, \t{msg}]\n")
+
+        self.file.flush()
+    # End write
+
     def close(self):
         if self.file is not None:
             self.file.close()
     # End close
+# End Log
