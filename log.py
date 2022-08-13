@@ -36,7 +36,7 @@ class Log:
 
         self.file.write(f"[{date}]: [{self._TXT}]\n")
         self.file.write(f"\t-- {msg}\n")
-        
+
         self.file.flush()
     # End write
 
