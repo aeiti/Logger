@@ -13,3 +13,12 @@ log.info(f"{const._TXT_INFO} log test")
 log.debug(f"{const._TXT_DEBUG} log test")
 log.trace(f"{const._TXT_TRACE} log test")
 log.all(f"{const._TXT_ALL} log test")
+
+for i in range(0, 5):
+    log.fatal(f"The count is ({i})")
+    log.error(f"The count is ({i})")
+    log.warning(f"The count is ({i})")
+    log.info(f"The count is ({i})")
+    log.debug(f"The count is ({i})")
+    log.trace(f"The count is ({i})")
+    log.all(f"The count is ({i})")

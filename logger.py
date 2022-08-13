@@ -44,31 +44,31 @@ class Logger:
     # End close_log
 
     def fatal(self, msg):
-        self._LOG_FATAL.write(f"{msg}")
+        self._LOG_FATAL.write(msg)
     # End fatal
 
     def error(self, msg):
-        self._LOG_ERROR.write(f"{msg}")
+        self._LOG_ERROR.write(msg)
     # End error
 
     def warning(self, msg):
-        self._LOG_WARNING.write(f"{msg}")
+        self._LOG_WARNING.write(msg)
     # End warning
 
     def info(self, msg):
-        self._LOG_INFO.write(f"{msg}")
+        self._LOG_INFO.write(msg)
     # End info
 
     def debug(self, msg):
-        self._LOG_DEBUG.write(f"{msg}")
+        self._LOG_DEBUG.write(msg)
     # End debug
 
     def trace(self, msg):
-        self._LOG_TRACE.write(f"{msg}")
+        self._LOG_TRACE.write(msg)
     # End trace
 
     def all(self, msg):
-        self._LOG_ALL.write(f"{msg}")
+        self._LOG_ALL.write(msg)
     # End all
 
     def __del__(self):

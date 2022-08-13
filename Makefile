@@ -10,4 +10,4 @@ clean:
 
 	clear
 
-	echo "Cleaned!"
+	@echo "Cleaned!"
