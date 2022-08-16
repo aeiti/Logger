@@ -25,25 +25,6 @@ def enable_logs():
     _logs_enabled = True
 # End enable_logs
 
-def open_logs():
-    if _logs_enabled:
-        log._LOG_FATAL.open()
-        log._LOG_ERROR.open()
-        log._LOG_WARNING.open()
-        log._LOG_INFO.open()
-        log._LOG_DEBUG.open()
-        log._LOG_TRACE.open()
-        log._LOG_ALL.open()
-# End open_logs
-
-def close_logs():
-    log._LOG_FATAL.close()
-    log._LOG_ERROR.close()
-    log._LOG_WARNING.close()
-    log._LOG_INFO.close()
-    log._LOG_DEBUG.close()
-    log._LOG_TRACE.close()
-    log._LOG_ALL.close()
 # End close_log
 
 def log_fatal(msg):

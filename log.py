@@ -31,6 +31,8 @@ class Log:
     # End open
 
     def write(self, msg):
+        self.open()
+
         if self.file is not None:
             now = datetime.now()
             date = now.strftime("%m/%d/%Y %H:%M:%S.%f")
@@ -39,6 +41,8 @@ class Log:
             self.file.write(f"\t-- {msg}\n")
 
             self.file.flush()
+
+            self.close()
         else:
             print(f"Unable to write to file {self._TXT}")
     # End write

@@ -59,8 +59,6 @@ def loop_all():
         log.log_all(f"The count is ({i})")
 
 def force_log(msg):
-    log.enable_logs()
-
     log.log_fatal(f"{msg}")
     log.log_error(f"{msg}")
     log.log_warning(f"{msg}")
@@ -75,10 +73,6 @@ def main():
     print("Enabling logging")
     log.enable_logs()
     print("Logging enabled")
-
-    print("Opening logs")
-    log.open_logs()
-    print("Logs opened")
 
     print("Running tests")
 
@@ -103,8 +97,6 @@ def main():
     force_log("LOGGING HAS BEEN ENABLED")
 
     print("Tests complete!")
-
-    log.close_logs()
 
 if __name__ == '__main__':
     main()
