@@ -3,75 +3,61 @@
 
 # Imports
 import constants as const
+import log as log
 
-from log import Log
+# Initialize logs
+log._LOG_FATAL = log.Log("fatal.txt", const._TXT_FATAL) # FATAL log
+log._LOG_ERROR = log.Log("error.txt", const._TXT_ERROR) # ERROR log
+log._LOG_WARNING = log.Log("warnings.txt", const._TXT_WARNING) # WARNING log
+log._LOG_INFO = log.Log("info.txt", const._TXT_INFO) # INFO log
+log._LOG_DEBUG = log.Log("debug.txt", const._TXT_DEBUG) # DEBUG log
+log._LOG_TRACE = log.Log("trace.txt", const._TXT_TRACE) # TRACE log
+log._LOG_ALL = log.Log("all.txt", const._TXT_ALL) # ALL log
 
-class Logger:
-    # pylint: disable=too-many-instance-attributes
-    # All attributes are needed for logging
+def open_logs():
+    log._LOG_FATAL.open()
+    log._LOG_ERROR.open()
+    log._LOG_WARNING.open()
+    log._LOG_INFO.open()
+    log._LOG_DEBUG.open()
+    log._LOG_TRACE.open()
+    log._LOG_ALL.open()
+# End open_logs
 
-    def __init__(self):
-        # Initialize logs
-        self._LOG_FATAL = Log("fatal.txt", const._TXT_FATAL) # FATAL log
-        self._LOG_ERROR = Log("error.txt", const._TXT_ERROR) # ERROR log
-        self._LOG_WARNING = Log("warnings.txt", const._TXT_WARNING) # WARNING log
-        self._LOG_INFO = Log("info.txt", const._TXT_INFO) # INFO log
-        self._LOG_DEBUG = Log("debug.txt", const._TXT_DEBUG) # DEBUG log
-        self._LOG_TRACE = Log("trace.txt", const._TXT_TRACE) # TRACE log
-        self._LOG_ALL = Log("all.txt", const._TXT_ALL) # ALL log
+def close_logs():
+    log._LOG_FATAL.close()
+    log._LOG_ERROR.close()
+    log._LOG_WARNING.close()
+    log._LOG_INFO.close()
+    log._LOG_DEBUG.close()
+    log._LOG_TRACE.close()
+    log._LOG_ALL.close()
+# End close_log
 
-        self.open_logs() # Open all log files
-    # End __init__
+def log_fatal(msg):
+    log._LOG_FATAL.write(msg)
+# End fatal
 
-    def open_logs(self):
-        self._LOG_FATAL.open()
-        self._LOG_ERROR.open()
-        self._LOG_WARNING.open()
-        self._LOG_INFO.open()
-        self._LOG_DEBUG.open()
-        self._LOG_TRACE.open()
-        self._LOG_ALL.open()
-    # End open_logs
+def log_error(msg):
+    log._LOG_ERROR.write(msg)
+# End error
 
-    def close_logs(self):
-        self._LOG_FATAL.close()
-        self._LOG_ERROR.close()
-        self._LOG_WARNING.close()
-        self._LOG_INFO.close()
-        self._LOG_DEBUG.close()
-        self._LOG_TRACE.close()
-        self._LOG_ALL.close()
-    # End close_log
+def log_warning(msg):
+    log._LOG_WARNING.write(msg)
+# End warning
 
-    def fatal(self, msg):
-        self._LOG_FATAL.write(msg)
-    # End fatal
+def log_info(msg):
+    log._LOG_INFO.write(msg)
+# End info
 
-    def error(self, msg):
-        self._LOG_ERROR.write(msg)
-    # End error
+def log_debug(msg):
+    log._LOG_DEBUG.write(msg)
+# End debug
 
-    def warning(self, msg):
-        self._LOG_WARNING.write(msg)
-    # End warning
+def log_trace(msg):
+    log._LOG_TRACE.write(msg)
+# End trace
 
-    def info(self, msg):
-        self._LOG_INFO.write(msg)
-    # End info
-
-    def debug(self, msg):
-        self._LOG_DEBUG.write(msg)
-    # End debug
-
-    def trace(self, msg):
-        self._LOG_TRACE.write(msg)
-    # End trace
-
-    def all(self, msg):
-        self._LOG_ALL.write(msg)
-    # End all
-
-    def __del__(self):
-        self.close_logs()
-    # End __del__
-# End Logger class
+def log_all(msg):
+    log._LOG_ALL.write(msg)
+# End all
