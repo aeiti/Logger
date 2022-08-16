@@ -25,36 +25,55 @@ def enable_logs():
     _logs_enabled = True
 # End enable_logs
 
-# End close_log
-
 def log_fatal(msg):
     if _logs_enabled:
         log._LOG_FATAL.write(msg)
+        log._LOG_ERROR.write(msg, const._TXT_FATAL)
+        log._LOG_WARNING.write(msg, const._TXT_FATAL)
+        log._LOG_INFO.write(msg, const._TXT_FATAL)
+        log._LOG_DEBUG.write(msg, const._TXT_FATAL)
+        log._LOG_TRACE.write(msg, const._TXT_FATAL)
+        log._LOG_ALL.write(msg, const._TXT_FATAL)
 # End fatal
 
 def log_error(msg):
     if _logs_enabled:
         log._LOG_ERROR.write(msg)
+        log._LOG_WARNING.write(msg, const._TXT_ERROR)
+        log._LOG_INFO.write(msg, const._TXT_ERROR)
+        log._LOG_DEBUG.write(msg, const._TXT_ERROR)
+        log._LOG_TRACE.write(msg, const._TXT_ERROR)
+        log._LOG_ALL.write(msg, const._TXT_ERROR)
 # End error
 
 def log_warning(msg):
     if _logs_enabled:
         log._LOG_WARNING.write(msg)
+        log._LOG_INFO.write(msg, const._TXT_WARNING)
+        log._LOG_DEBUG.write(msg, const._TXT_WARNING)
+        log._LOG_TRACE.write(msg, const._TXT_WARNING)
+        log._LOG_ALL.write(msg, const._TXT_WARNING)
 # End warning
 
 def log_info(msg):
     if _logs_enabled:
         log._LOG_INFO.write(msg)
+        log._LOG_DEBUG.write(msg, const._TXT_INFO)
+        log._LOG_TRACE.write(msg, const._TXT_INFO)
+        log._LOG_ALL.write(msg, const._TXT_INFO)
 # End info
 
 def log_debug(msg):
     if _logs_enabled:
         log._LOG_DEBUG.write(msg)
+        log._LOG_TRACE.write(msg, const._TXT_DEBUG)
+        log._LOG_ALL.write(msg, const._TXT_DEBUG)
 # End debug
 
 def log_trace(msg):
     if _logs_enabled:
         log._LOG_TRACE.write(msg)
+        log._LOG_ALL.write(msg, const._TXT_DEBUG)
 # End trace
 
 def log_all(msg):

@@ -26,7 +26,7 @@ def test_trace():
 def test_all():
     log.log_all(f"{const._TXT_ALL} log test")
 
-loop_max = 5
+loop_max = 2
 def loop_tests():
     loop_fatal()
     loop_error()
@@ -59,6 +59,8 @@ def loop_all():
         log.log_all(f"The count is ({i})")
 
 def force_log(msg):
+    log.enable_logs()
+
     log.log_fatal(f"{msg}")
     log.log_error(f"{msg}")
     log.log_warning(f"{msg}")

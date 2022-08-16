@@ -5,9 +5,12 @@ tests:
 	$(PYTHON) $(TESTS)
 
 clean:
-	rm -r __pycache__/
-	rm -r logs/
+	rm -r -f logs/*
 
 	clear
 
 	@echo "Cleaned!"
+
+deep_clean:
+	rm -r -f __pycache__/
+	make clean

@@ -30,14 +30,18 @@ class Log:
             print(const._LOG_OPENED_SUCCESSFULLY.format(self._TXT))
     # End open
 
-    def write(self, msg):
+    def write(self, msg, txt=None):
+
+        if txt is None:
+            txt = self._TXT
+
         self.open()
 
         if self.file is not None:
             now = datetime.now()
             date = now.strftime("%m/%d/%Y %H:%M:%S.%f")
 
-            self.file.write(f"[{date}]: [{self._TXT}]\n")
+            self.file.write(f"[{date}]: [{txt}]\n")
             self.file.write(f"\t-- {msg}\n")
 
             self.file.flush()
