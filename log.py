@@ -33,7 +33,7 @@ class Log:
     def write(self, msg):
         if self.file is not None:
             now = datetime.now()
-            date = now.strftime("%m/%d/%Y %H:%M:%S:%f"[:-2])
+            date = now.strftime("%m/%d/%Y %H:%M:%S.%f")
 
             self.file.write(f"[{date}]: [{self._TXT}]\n")
             self.file.write(f"\t-- {msg}\n")
