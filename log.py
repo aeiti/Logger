@@ -25,9 +25,10 @@ class Log:
             self.file = open(self._PATH, 'w+', encoding=const._UTF8)
         except OSError:
             self.file = None
-            print(const._LOG_OPENED_UNSUCCESSFULLY.format(self._TXT))
+            # print(const._LOG_OPENED_UNSUCCESSFULLY.format(self._TXT))
         else:
-            print(const._LOG_OPENED_SUCCESSFULLY.format(self._TXT))
+            pass
+            # print(const._LOG_OPENED_SUCCESSFULLY.format(self._TXT))
     # End open
 
     def write(self, msg, txt=None):
