@@ -48,12 +48,13 @@ class Log:
 
             self.close()
         else:
-            print(f"Unable to write to file {self._TXT}")
+            print(f"Unable to write to file {txt}")
     # End write
 
     def close(self):
         if self.file is not None:
             self.file.close()
+            self.file = None
     # End close
 
     def __del__(self):

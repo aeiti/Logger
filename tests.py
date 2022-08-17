@@ -13,16 +13,22 @@ def single_tests():
 
 def test_fatal():
     log.log_fatal(f"{const._TXT_FATAL} log test")
+
 def test_error():
     log.log_error(f"{const._TXT_ERROR} log test")
+
 def test_warning():
     log.log_warning(f"{const._TXT_WARNING} log test")
+
 def test_info():
     log.log_info(f"{const._TXT_INFO} log test")
+
 def test_debug():
     log.log_debug(f"{const._TXT_DEBUG} log test")
+
 def test_trace():
     log.log_trace(f"{const._TXT_TRACE} log test")
+
 def test_all():
     log.log_all(f"{const._TXT_ALL} log test")
 
@@ -39,21 +45,27 @@ def loop_tests():
 def loop_fatal():
     for i in range(0, loop_max):
         log.log_fatal(f"The count is ({i})")
+
 def loop_error():
     for i in range(0, loop_max):
         log.log_error(f"The count is ({i})")
+
 def loop_warning():
     for i in range(0, loop_max):
         log.log_warning(f"The count is ({i})")
+
 def loop_info():
     for i in range(0, loop_max):
         log.log_info(f"The count is ({i})")
+
 def loop_debug():
     for i in range(0, loop_max):
         log.log_debug(f"The count is ({i})")
+
 def loop_trace():
     for i in range(0, loop_max):
         log.log_trace(f"The count is ({i})")
+
 def loop_all():
     for i in range(0, loop_max):
         log.log_all(f"The count is ({i})")
@@ -96,7 +108,7 @@ def main():
     print("Logging disabled complete")
 
     log.enable_logs()
-    force_log("LOGGING HAS BEEN ENABLED")
+    force_log("LOGGING HAS BEEN REENABLED")
 
     print("Tests complete!")
 
