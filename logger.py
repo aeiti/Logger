@@ -5,14 +5,23 @@
 import constants as const
 import log as log
 
+# Generate log filenames
+name_fatal = const._FILENAME.format(const._TXT_FATAL_LC)
+name_error = const._FILENAME.format(const._TXT_ERROR_LC)
+name_warnings = const._FILENAME.format(const._TXT_WARNING_LC)
+name_info = const._FILENAME.format(const._TXT_INFO_LC)
+name_debug = const._FILENAME.format(const._TXT_DEBUG_LC)
+name_trace = const._FILENAME.format(const._TXT_TRACE_LC)
+name_all = const._FILENAME.format(const._TXT_ALL_LC)
+
 # Initialize logs
-_LOG_FATAL = log.Log("fatal.txt", const._TXT_FATAL) # FATAL log
-_LOG_ERROR = log.Log("error.txt", const._TXT_ERROR) # ERROR log
-_LOG_WARNING = log.Log("warnings.txt", const._TXT_WARNING) # WARNING log
-_LOG_INFO = log.Log("info.txt", const._TXT_INFO) # INFO log
-_LOG_DEBUG = log.Log("debug.txt", const._TXT_DEBUG) # DEBUG log
-_LOG_TRACE = log.Log("trace.txt", const._TXT_TRACE) # TRACE log
-_LOG_ALL = log.Log("all.txt", const._TXT_ALL) # ALL log
+_LOG_FATAL = log.Log(name_fatal, const._TXT_FATAL, 1) # FATAL log
+_LOG_ERROR = log.Log(name_error, const._TXT_ERROR, 2) # ERROR log
+_LOG_WARNING = log.Log(name_warnings, const._TXT_WARNING, 3) # WARNING log
+_LOG_INFO = log.Log(name_info, const._TXT_INFO, 4) # INFO log
+_LOG_DEBUG = log.Log(name_debug, const._TXT_DEBUG, 5) # DEBUG log
+_LOG_TRACE = log.Log(name_trace, const._TXT_TRACE, 6) # TRACE log
+_LOG_ALL = log.Log(name_all, const._TXT_ALL, 7) # ALL log
 
 _logs_enabled = True
 def disable_logs():

@@ -6,10 +6,11 @@ from datetime import datetime
 import constants as const
 
 class Log:
-    def __init__(self, filename, txt):
+    def __init__(self, filename, txt, lvl=""):
         self._FILENAME = filename
-        self._PATH = f"{const._LOG_DIR}/{filename}"
+        self._PATH = f"{const._LOG_DIR}/{lvl}_{filename}"
         self._TXT = txt
+        self.LVL = lvl
 
         self.file = None
     # End __init__
