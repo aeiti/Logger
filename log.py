@@ -27,13 +27,12 @@ class Log:
         except OSError:
             self.file = None
             # print(const._LOG_OPENED_UNSUCCESSFULLY.format(self._TXT))
-        else:
-            pass
+        # else:
+        #     pass
             # print(const._LOG_OPENED_SUCCESSFULLY.format(self._TXT))
     # End open
 
     def write(self, msg, txt=None):
-
         if txt is None:
             txt = self._TXT
 
